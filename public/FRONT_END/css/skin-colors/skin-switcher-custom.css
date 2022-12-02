@@ -1,0 +1,98 @@
+.skin-switcher {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    height: auto;
+    padding: 10px 10px;
+
+    border: 1px solid var(--bg-white-bold);
+    border-radius: 10px;
+    background: var(--bg-white-light);
+
+    z-index: 10;
+    transform: translateX(200px);
+    transition: all 0.3s ease;
+}
+.open-switcher {
+    transform: translateX(0);
+}
+
+/*-----------------
+    CSS NÚT
+------------------*/
+.skin-switcher .s-icon {
+    position: absolute;
+    right: 105%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    font-size: 1.25rem; /* ~20px */
+    border: 2px solid var(--bg-white-bold);
+    border-radius: 50%;
+    background: var(--bg-white-light);
+    color: var(--text-black-900);
+    cursor: pointer;
+
+    transition: all 0.8 ease;
+}
+.fa-spin {
+    -webkit-animation: fa-spin 3s infinite linear !important;
+    animation: fa-spin 3s infinite linear !important;
+}
+
+/*--- NÚT CÀI ĐẶT ---*/
+.skin-switcher .style-switcher-toggler {
+    top: 0;
+}
+/*--- NÚT NGÀY - ĐÊM ---*/
+.skin-switcher .day-night {
+    top: 50px;
+}
+
+/*-------------------------
+    KHUNG ĐỔI MÀU
+--------------------------*/
+
+.skin-switcher h4 {
+    margin-bottom: 10px;
+    color: var(--text-black-900);
+}
+.skin-switcher .colors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.skin-switcher .colors span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    transition: all 0.4s ease-in-out;
+}
+.colors span.active {
+    border: 3px solid var(--text-black-900);
+}
+.colors span.color-1 {
+    background: var(--skin-color-1);
+}
+.colors span.color-2 {
+    background: var(--skin-color-2);
+}
+.colors span.color-3 {
+    background: var(--skin-color-3);
+}
+.colors span.color-4 {
+    background: var(--skin-color-4);
+}
+.colors span.color-5 {
+    background: var(--skin-color-5);
+}

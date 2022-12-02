@@ -1,0 +1,21 @@
+CRITICAL - 2022-12-01 11:33:34 --> Call to a member function helper() on null
+in APPPATH\Controllers\FRONT_END\Home.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\FRONT_END\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FRONT_END\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-01 11:33:46 --> Call to a member function helper() on null
+in APPPATH\Controllers\FRONT_END\Home.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\FRONT_END\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FRONT_END\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-01 22:06:20 --> Invalid file: FRONT_END/partials/home_viewư.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('FRONT_END/partials/home_viewư.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('FRONT_END/partials/home_viewư', [], true)
+ 3 APPPATH\Controllers\FRONT_END\Home.php(19): view('FRONT_END/partials/home_viewư', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\FRONT_END\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FRONT_END\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

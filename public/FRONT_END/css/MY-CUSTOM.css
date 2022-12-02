@@ -1,0 +1,1022 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Nunito-Regular';
+    src: local('Nunito-Regular'), url('./../fonts/Nunito/static/Nunito-Regular.ttf');
+}
+@font-face {
+    font-family: 'IslandMoments-Regular';
+    src: local('IslandMoments-Regular'), url('./../fonts/Island_Moments/IslandMoments-Regular.ttf');
+}
+@font-face {
+    font-family: 'Pacifico-Regular';
+    src: local('Pacifico-Regular'), url('./../fonts/Pacifico/Pacifico-Regular.ttf');
+}
+
+/*------------------------
+        TẠO BIẾN
+------------------------*/
+:root {
+    --skin-color-used: var(--skin-color-2);
+
+    --text-black-700: #504e70;
+    --text-black-900: #302e4d;
+
+    --bg-white-light: #fdf9ff;
+    --bg-white-medium: #f2f2fc;
+    --bg-white-bold: #e8dfec;
+
+    --width-aside: 270px; /* chiều rộng menu danh mục */
+    --global-mg-padd-spacing: 1rem; /* ~ 16px, khoảng cách magin, padd mặc định */
+    --outline-spacing: 1.5625rem; /* ~ 25px, khoảng cách viền ngoài cùng */
+}
+
+body.dark {
+    --text-black-700: #e9e9e9;
+    --text-black-900: #ffffff;
+
+    --bg-white-light: #393939;
+    --bg-white-medium: #222222;
+    --bg-white-bold: #151515;
+}
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    font-family: 'Nunito-Regular';
+    font-size: 1.25rem; /* ~ 20px */
+    color: rgb(22, 22, 22);
+    /* background: linear-gradient(50deg, var(--color-gradient-a), var(--color-gradient-b)); */
+
+    /* HIỂN THỊ WEB SAU KHI LOAD XONG TẤT CẢ JS */
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline-width: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+input {
+    line-height: normal;
+}
+label,
+button {
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+}
+
+/* ============================= */
+/*------------------------
+    CSS BỘ KHUNG XƯƠNG
+------------------------*/
+.main-container {
+    width: 100%;
+    min-height: 100%;
+}
+.section {
+    display: block;
+    width: calc(100vw - var(--width-aside));
+    min-height: 100vh;
+
+    background: var(--bg-white-medium);
+
+    /* HIỆU ỨNG SLIDE SECTION MENU */
+    position: fixed;
+    top: 0;
+    left: var(--width-aside);
+    bottom: 0;
+    z-index: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.section.previous {
+    z-index: 2;
+}
+.section.active {
+    z-index: 3;
+    animation: slideSection 1s ease;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: calc(100% - calc(2 * var(--outline-spacing)));
+}
+.row {
+    display: flex;
+    flex-wrap: wrap !important;
+    justify-content: stretch !important;
+    max-width: 100%;
+}
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+}
+.padd-lr-15 {
+    padding-left: var(--global-mg-padd-spacing);
+    padding-right: var(--global-mg-padd-spacing);
+}
+.padd-l-15 {
+    padding-left: var(--global-mg-padd-spacing);
+}
+.padd-r-15 {
+    padding-right: var(--global-mg-padd-spacing);
+}
+.padd-b-30 {
+    padding-bottom: calc(2 * var(--global-mg-padd-spacing));
+}
+
+.btn {
+    display: inline-block;
+    font-size: 1rem; /* ~ 16px */
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: #fdf9ff;
+    background: #504e70;
+}
+.hire-me {
+    background: var(--skin-color-used);
+}
+.limit-text {
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-line-clamp: 2;
+}
+.limit-text.disable {
+    -webkit-line-clamp: unset;
+}
+
+@keyframes slideSection {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/*------------------------
+    TIÊU ĐỀ ĐẦU TRANG
+------------------------*/
+
+.section-title {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.section-title h2 {
+    position: relative;
+    font-size: 2.5rem; /* ~ 40px */
+    font-weight: 700;
+    color: var(--text-black-900);
+}
+.section-title h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 4px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    background: var(--skin-color-used);
+}
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 25px;
+    height: 4px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    background: var(--skin-color-used);
+}
+
+/*------------------------
+    MENU DANH MỤC - LOGO
+------------------------*/
+
+.aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--width-aside);
+    height: 100%;
+    padding: 30px;
+    background-color: var(--bg-white-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+.aside .logo {
+    position: absolute;
+    top: 50px;
+    text-transform: capitalize;
+}
+.logo a {
+    position: relative;
+    color: var(--text-black-900);
+    font-family: 'IslandMoments-Regular', cursive;
+    font-size: 2.25rem; /* ~ 36px */
+    font-weight: 700;
+    padding: 5px 15px;
+
+    /* tạo màu nền cho chữ */
+    background: linear-gradient(80deg, var(--skin-color-used), var(--text-black-700));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.logo a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 10%;
+    height: 10px;
+    border-bottom: 3px solid var(--skin-color-used);
+    border-left: 3px solid var(--skin-color-used);
+}
+
+/*------------------------
+    NÚT MENU ẨN HIỆN
+------------------------*/
+
+.aside .nav-toggler {
+    position: absolute;
+    left: calc(var(--width-aside) + 20px);
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-white-light);
+    border: 1px solid var(--bg-white-bold);
+    border-radius: 5px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+.aside .nav-toggler span {
+    position: relative;
+    display: inline-block;
+    height: 2px;
+    width: 20px;
+    background: var(--skin-color-used);
+}
+.aside .nav-toggler span::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--skin-color-used);
+}
+.aside .nav-toggler span::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--skin-color-used);
+}
+/* hiện ra khi responsive */
+.aside .nav-toggler.open span {
+    background-color: transparent;
+}
+.aside .nav-toggler.open span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+.aside .nav-toggler.open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/*---------------------------
+    CÁC TÊN DANH MỤC - ICON
+---------------------------*/
+
+.aside .nav {
+    list-style: none;
+}
+.aside .nav li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.aside .nav li a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
+    color: var(--text-black-900);
+    padding: 15px 15px;
+    border-bottom: 1px solid var(--bg-white-bold);
+    transition: 0.5s;
+}
+.aside .nav li a:hover {
+    /* box-shadow: <lệch trái-phải> <lệch trên-dưới> <độ đậm nhạt> <độ lan toả> */
+    box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.4);
+}
+.aside .nav li a.active {
+    color: var(--skin-color-used);
+    box-shadow: 5px 8px 10px -7px rgba(0, 0, 0, 0.4);
+}
+.aside .nav li a i {
+    margin-right: 1.25rem; /* ~ 20px */
+}
+
+/* ========================================== */
+/*-------------------------------
+    CSS TRANG GIỚI THIỆU - HOME
+--------------------------------*/
+.home {
+    display: flex;
+    align-items: center;
+    color: var(--text-black-900);
+}
+.home .home-logo-responsive {
+    display: none;
+}
+.home-info {
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+.home-info h3 {
+    font-size: 1.75rem; /*28px;*/
+    margin: 15px 0;
+}
+.home-info h3 span.name {
+    display: inline-block;
+    font-family: 'Pacifico-Regular';
+    font-weight: 400;
+    color: var(--skin-color-used);
+}
+.home-info h3.job {
+    height: 60px;
+}
+.home-info h3.job span.typing {
+    color: var(--skin-color-used);
+}
+.home-info .intro-text {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.home-info p {
+    margin-bottom: 10px;
+    font-size: 1.25rem; /* ~ 20px */
+    color: var(--text-black-700);
+}
+
+/*----------------------
+    ẢNH CHÂN DUNG
+----------------------*/
+
+.home-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40%;
+    max-width: 40%;
+    max-height: auto;
+    padding: 0 20px;
+}
+.avatar-inner {
+    position: relative;
+    max-width: 400px;
+    padding: 30px;
+    height: auto;
+}
+.home-avatar img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+.avatar-inner::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 4rem;
+    height: 4rem;
+    border-top: 10px solid var(--skin-color-used);
+    border-left: 10px solid var(--skin-color-used);
+    border-top-left-radius: 6px;
+}
+.avatar-inner::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    width: 4rem;
+    height: 4rem;
+    border-right: 10px solid var(--skin-color-used);
+    border-bottom: 10px solid var(--skin-color-used);
+    border-bottom-right-radius: 6px;
+}
+
+/* ================================== */
+/*-------------------------------
+    CSS TRANG THÔNG TIN - ABOUT
+--------------------------------*/
+.about {
+    color: var(--text-black-700);
+}
+.about .about-text {
+    font-size: 1.25rem; /* ~ 20px */
+    margin-bottom: 30px;
+}
+.about-text h3 {
+    font-size: 1.5rem; /* ~ 24px */
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--text-black-900);
+}
+.about-text h3 span {
+    color: var(--skin-color-used);
+}
+.about-text p {
+    margin-bottom: 0.625rem; /* ~ 10px */
+}
+
+.about .personal-info {
+    flex: 0 0 65%;
+    max-width: 65%;
+}
+.personal-info .info-item {
+    display: inline-block;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.personal-info .info-item p {
+    width: 100%;
+    font-size: 1.125rem; /* ~ 18px */
+    font-weight: 600;
+    padding: 15px 0;
+    color: var(--text-black-900);
+    border-bottom: 1px solid var(--bg-white-bold);
+}
+.personal-info .info-item p span {
+    font-weight: 300;
+    color: var(--text-black-700);
+}
+
+/*----------------------
+    NÚT DOWNLOAD
+-----------------------*/
+
+.personal-info .buttons {
+    margin: 40px 0;
+}
+.personal-info .buttons a.downl-cv {
+    margin-right: 5px;
+    background-color: rgb(50, 50, 165) !important;
+}
+
+/*-------------------------
+    THANH ĐO KĨ NĂNG
+---------------------------*/
+
+.about .skills {
+    flex: 0 0 35%;
+    max-width: 35%;
+}
+.skills .skill-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.skills .skill-item:last-child {
+    margin-bottom: 0;
+}
+.skill-item h5 {
+    font-size: 1rem; /* ~ 16px */
+    font-weight: 600;
+    line-height: 2;
+    text-transform: capitalize;
+    color: var(--text-black-900);
+}
+.skill-item .progress {
+    position: relative;
+    background: var(--bg-white-bold);
+    width: 100%;
+    height: 7px;
+    border-radius: 5px;
+}
+.skill-item .progress .progress-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 7px;
+    background: var(--skin-color-used);
+}
+.skill-item .progress .skill-percent {
+    position: absolute;
+    top: -30px;
+    right: 0;
+}
+
+/*---------------------------
+    HỌC VẤN - KINH NGHIỆM
+---------------------------*/
+
+.about .education {
+    margin-top: 40px;
+}
+.education .title {
+    font-size: 1.5rem; /* ~ 24px */
+    margin-bottom: 20px;
+}
+.education .timeline {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.timeline .timeline-box {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    background: var(--bg-white-light);
+    border: 1px solid var(--bg-white-bold);
+    border-radius: 15px;
+    /* box-shadow: <lệch trái-phải> <lệch trên-dưới> <độ đậm nhạt> <độ lan toả> */
+    box-shadow: 0px 1px 10px -5px rgb(0 0 0 / 0.9);
+}
+.timeline .timeline-item {
+    position: relative;
+    padding: 0 20px 40px 40px;
+    color: #000;
+}
+.timeline .timeline-item:last-child {
+    padding-bottom: 0;
+}
+.timeline .timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    width: 3px;
+    height: 100%;
+    border-left: 3px solid var(--skin-color-used);
+}
+.timeline .timeline-item .timeline-dot {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 1px;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    background: var(--skin-color-used);
+}
+.timeline .timeline-calendar {
+    margin-bottom: 15px;
+    font-size: 1.2rem; /* ~ 20px */
+    font-weight: 400;
+    color: var(--text-black-700);
+}
+.timeline .timeline-calendar i {
+    margin-right: 10px;
+}
+.timeline .timeline-title {
+    color: var(--text-black-700);
+}
+.timeline .timeline-item p {
+    color: var(--text-black-900);
+    margin: 10px 0;
+}
+
+/* ============================== */
+/*-------------------------------
+    CSS TRANG KĨ NĂNG - SERVICE
+-------------------------------*/
+.service {
+    color: var(--text-black-700);
+}
+.service .service-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    margin-bottom: 30px;
+}
+.service-item .service-inner {
+    width: 100%;
+    height: 100%;
+    padding: 20px 40px 20px 60px;
+    text-align: center;
+    background: var(--bg-white-light);
+    border: 1px solid var(--bg-white-bold);
+    border-radius: 8px;
+    /* box-shadow: <lệch trái-phải> <lệch trên-dưới> <độ đậm nhạt> <độ lan toả> */
+    box-shadow: 0px 1px 10px -5px rgb(0 0 0 / 0.9);
+}
+.service-item .service-inner:hover {
+    box-shadow: 2px 5px 10px -5px rgb(0 0 0 / 0.9);
+}
+.service-inner .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 auto;
+    font-size: 1.875rem; /* ~ 30px */
+    color: var(--skin-color-used);
+    transition: all 0.5s ease;
+}
+.service-inner:hover .icon {
+    background: var(--skin-color-used);
+    color: var(--bg-white-light);
+    font-size: 1.25rem; /* ~ 20px */
+}
+.service-inner h4 {
+    font-size: 1.25rem; /* ~ 20px */
+    color: var(--text-black-900);
+    margin: 13px 0;
+}
+.service-inner p {
+    position: relative;
+    margin-bottom: 10px;
+}
+.service-inner p i {
+    position: absolute;
+    top: 2px;
+    left: -35px;
+    font-size: 1.25rem; /* ~ 20px */
+    color: var(--skin-color-used);
+}
+
+/* ============================== */
+/*-----------------------------
+    CSS TRANG DỰ ÁN - PROJECT
+-----------------------------*/
+.project {
+    color: var(--text-black-700);
+}
+.project-text {
+    font-size: 1.25rem; /* ~ 20px */
+    margin-bottom: 20px;
+}
+.project .project-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    margin-bottom: 30px;
+}
+.project-item .project-inner {
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px;
+    text-align: center;
+    background: var(--bg-white-light);
+    border: 1px solid var(--bg-white-bold);
+    border-radius: 8px;
+    /* box-shadow: <lệch trái-phải> <lệch trên-dưới> <độ đậm nhạt> <độ lan toả> */
+    box-shadow: 0px 1px 10px -5px rgb(0 0 0 / 0.9);
+}
+.project-item .project-inner:hover {
+    box-shadow: 2px 5px 10px -5px rgb(0 0 0 / 0.9);
+}
+.project-inner img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.project-inner .project-info {
+    color: var(--text-black-700);
+    margin-top: 20px;
+}
+.project-inner .project-info h4 {
+    color: var(--text-black-900);
+}
+
+/* =================================== */
+/*-------------------------------
+    CSS TRANG LIÊN HỆ - CONTACT
+--------------------------------*/
+.contact {
+    color: var(--text-black-700);
+}
+.contact-title {
+    flex: 0 0 100%;
+    font-size: 1.125rem; /* ~ 18px */
+    margin-bottom: 30px;
+    text-align: center;
+}
+.contact-title .contact-ques {
+    color: var(--skin-color-used);
+    font-size: 1.5rem; /* ~ 24px */
+    margin-bottom: 10px;
+}
+
+/*----------------------
+    BÊN TRÁI - CONTACT
+-----------------------*/
+
+.contact .contact-info {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.contact-info .contact-info-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 20px;
+}
+.contact-info-item .contact-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px 20px;
+    text-align: center;
+}
+.contact-inner .icon {
+    font-size: 1.5rem; /* ~ 24px */
+    color: var(--skin-color-used);
+    margin-bottom: 10px;
+}
+.contact-inner h4 {
+    color: var(--text-black-900);
+}
+.contact-inner p {
+    height: 100%;
+    margin-top: 10px;
+    padding: auto 0;
+}
+
+.contact-info-gg-map {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 40px;
+}
+.contact-info-gg-map .contact-inner {
+    height: 100%;
+    padding: 10px 10px;
+    background: var(--bg-white-light);
+    border: 1px solid var(--bg-white-bold);
+    border-radius: 8px;
+    /* box-shadow: <lệch trái-phải> <lệch trên-dưới> <độ đậm nhạt> <độ lan toả> */
+    box-shadow: 0px 1px 10px -5px rgb(0 0 0 / 0.3);
+}
+.contact-info-gg-map .contact-inner:hover {
+    box-shadow: 2px 5px 10px -5px rgb(0 0 0 / 0.9);
+}
+
+/*---------------------
+    BÊN PHẢI - CONTACT
+----------------------*/
+.contact .contact-send-email {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.contact-send-email .form-email {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 50px;
+}
+.form-email .form-group {
+    margin-bottom: 20px;
+}
+.form-email .form-group .form-control {
+    width: 100%;
+    padding: 13px 15px;
+
+    font-size: 1.125rem; /* ~ 18px */
+    font-family: 'Nunito-Regular';
+    font-weight: 600;
+    color: var(--text-black-700);
+    background: var(--bg-white-medium);
+
+    border-radius: 25px;
+    border: 1px solid var(--bg-white-bold);
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.3), inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+        -0.5px -0.5px 0 rgba(255, 255, 255, 1), 0.5px 0.5px 0 rgba(0, 0, 0, 0.15),
+        0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+}
+.form-email .form-group textarea {
+    resize: none; /* tắt kéo rộng khung nhập */
+}
+.form-email .form-group button {
+    font-size: 1.125rem;
+    background: var(--skin-color-used);
+    border: 1px solid var(--bg-white-bold);
+}
+
+/* ================================ */
+/*---------------------------------
+    RESPONSIVE TRÌNH DUYỆT LAPTOP
+---------------------------------*/
+@media (max-width: 1200px) {
+    .limit-text {
+        overflow: hidden; /* thu gọn đoạn text khi width không đủ */
+    }
+
+    /*---------------------------
+    TRANG LIÊN HỆ - CONTACT
+    ---------------------------*/
+    .contact .contact-info,
+    .contact .contact-send-email {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .contact .contact-info-item {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    /*---------------------------------
+    RESPONSIVE IPAD NẰM NGANG
+    ---------------------------------*/
+    @media (max-width: 1024px) {
+        .aside {
+            transform: translateX(calc(-1 * var(--width-aside)));
+        }
+        .aside.open {
+            transform: translateX(0);
+        }
+        /* nút menu */
+        .aside .nav-toggler {
+            display: flex;
+        }
+        .section {
+            left: 0;
+            width: 100vw;
+        }
+        .limit-text {
+            white-space: unset;
+        }
+
+        /*-------------------------------
+        TRANG GIỚI THIỆU - HOME
+        --------------------------------*/
+        .home {
+            align-items: stretch;
+        }
+        .home .home-logo-responsive {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 20vh;
+        }
+
+        /*-----------------------
+        TRANG THÔNG TIN - ABOUT
+        -----------------------*/
+        .personal-info .info-item p span {
+            display: block;
+        }
+
+        /*-----------------------
+        TRANG LIÊN HỆ - CONTACT
+        -----------------------*/
+        .contact .contact-info,
+        .contact .contact-send-email {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    /*-------------------------
+    RESPONSIVE IPAD DỌC
+    -------------------------*/
+    @media (max-width: 768px) {
+        .padd-l-15,
+        .padd-r-15 {
+            padding: unset;
+        }
+        .full-width {
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+        }
+
+        /*-----------------------
+        TRANG THÔNG TIN - ABOUT
+        -----------------------*/
+        .about .personal-info,
+        .about .skills,
+        .education .timeline {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        /*-----------------------
+        TRANG KĨ NĂNG - SERVICE
+        -----------------------*/
+        .service .service-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        /*-----------------------
+        TRANG DỰ ÁN - PROJECT
+        -----------------------*/
+        .project .project-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        /*-----------------------
+        TRANG LIÊN HỆ - CONTACT
+        -----------------------*/
+        .contact-info .contact-info-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    /*----------------------------
+    RESPONSIVE ĐIỆN THOẠI NGANG
+    -----------------------------*/
+    @media (max-width: 480px) {
+        :root {
+            --global-mg-padd-spacing: 1rem; /* ~ 16px, khoảng cách magin, padd mặc định */
+            --outline-spacing: 1.25rem; /* ~ 20px, khoảng cách viền ngoài cùng */
+        }
+        .btn {
+            font-size: 1rem; /* ~ 16px */
+            font-weight: 600;
+            padding: 15px;
+        }
+
+        /*-----------------------
+        TRANG GIỚI THIỆU - HOME
+        -----------------------*/
+        .home .home-logo-responsive {
+            height: 15vh;
+        }
+        .home-info,
+        .home-avatar {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .home-avatar {
+            margin-top: 30px;
+        }
+
+        /*-----------------------
+        TRANG THÔNG TIN - ABOUT
+        -----------------------*/
+        .timeline .timeline-item {
+            padding: 0 0 40px 40px;
+        }
+
+        /*-----------------------
+        TRANG KĨ NĂNG - SERVICE
+        -----------------------*/
+        .service .service-item {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        /*-----------------------
+        TRANG DỰ ÁN - PROJECT
+        -----------------------*/
+        .project .project-item {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        /*-----------------------
+        TRANG LIÊN HỆ - CONTACT
+        -----------------------*/
+        .contact-info .contact-info-item {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+}
