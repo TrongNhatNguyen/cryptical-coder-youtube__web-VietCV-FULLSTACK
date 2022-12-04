@@ -32,12 +32,17 @@ $routes->set404Override();
  * Route Definitions
  * --------------------------------------------------------------------
  */
+$routes->get('/intro', 'IntroExample::index');
 
 // ĐƯỜNG DẪN URL CHO FRONT-END
-$routes->get('/intro', 'IntroExample::index');
-$routes->get('/home', [\App\Controllers\FRONT_END\Home::class, 'index'], ['as' => 'home']);
-$routes->addRedirect('/', 'home');
+$routes->get('/home/lang/(:any)', [\App\Controllers\FRONT_END\Home::class, 'index'], ['as' => 'home']);
+$routes->get('/home/lang/vie', [\App\Controllers\FRONT_END\Home::class, 'index'], ['as' => 'home.vie']);
+$routes->addRedirect('/', 'home.vie');
 
+// Chuyển đổi ngôn ngữ
+$routes->get('language', [\App\Controllers\FRONT_END\Home::class, 'default_language'], ['as' => 'language']);
+
+// ---------------------------------------
 // ĐƯỜNG DẪN URL CHO BACK-END
 $routes->get('/admin/dashboard', [\App\Controllers\BACK_END\HomeAdmin::class, 'index'], ['as' => 'admin_dashboard']);
 $routes->addRedirect('/admin', 'admin_dashboard');

@@ -8,16 +8,13 @@
         <!-- tiêu đề -->
         <div class="row">
             <div class="section-title padd-lr-15">
-                <h2>Dự Án</h2>
+                <h2><?= $lang['page_title']['project_title'] ?></h2>
             </div>
         </div>
 
         <div class="row">
             <div class="project-text padd-lr-15 m">
-                <p>
-                    Dưới dây là những dự án của bản thân trong quá trình học hỏi trao dồi kiến thức,
-                    kinh nghiệm:
-                </p>
+                <p><?= $lang['project_lang_section']['intro'] ?> :</p>
             </div>
         </div>
 

@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><?= $page_heading ?></title>
+    <title><?= $lang['page_heading'] ?></title>
 
     <!-- CSS files -->
     <link href="<?= base_url(); ?>/public/FRONT_END/css/fontawesome-free-6.2.0-web/css/all.min.css" rel="stylesheet" />

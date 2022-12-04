@@ -9,7 +9,7 @@
         <!-- tiêu đề -->
         <div class="row">
             <div class="section-title padd-lr-15">
-                <h2>Liên Hệ</h2>
+                <h2><?= $lang['page_title']['contact_title'] ?></h2>
             </div>
         </div>
 
@@ -17,8 +17,8 @@
             <div class="contact-info padd-lr-15">
                 <!-- tiêu đề 1 -->
                 <div class="contact-title">
-                    <h3 class="contact-ques padd-lr-15">Anh / chị có bất kỳ câu hỏi nào không ?</h3>
-                    <h4 class="contact-sub-title padd-lr-15">Tôi luôn ở đây để được trao đổi</h4>
+                    <h3 class="contact-ques padd-lr-15"><?= $lang['contact_lang_section']['title_1'] ?></h3>
+                    <h4 class="contact-sub-title padd-lr-15"><?= $lang['contact_lang_section']['title_ms_1'] ?></h4>
                 </div>
 
                 <div class="row">
@@ -27,7 +27,7 @@
                             <div class="icon">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
-                            <h4>Điện Thoại</h4>
+                            <h4><?= $lang['contact_lang_section']['info_phone'] ?></h4>
                             <p>0327 485 717</p>
                             <p>0949 068 623</p>
                         </div>
@@ -58,8 +58,8 @@
                             <div class="icon">
                                 <i class="fa-sharp fa-solid fa-location-dot"></i>
                             </div>
-                            <h4>Địa Chỉ</h4>
-                            <p>161, Phạm Văn Thuận, Tân Tiến, Biên Hoà, Đồng Nai</p>
+                            <h4><?= $lang['contact_lang_section']['info_adress'] ?></h4>
+                            <p><?= $lang['contact_lang_section']['adress'] ?></p>
                         </div>
                     </div>
                 </div>
@@ -69,8 +69,8 @@
             <div class="contact-send-email padd-lr-15">
                 <!-- tiêu đề 2 -->
                 <div class="contact-title">
-                    <h3 class="contact-ques padd-lr-15">Gửi cho tôi email</h3>
-                    <h4 class="contact-sub-title padd-lr-15">Tôi thường sẽ trả lời ngay tức thì</h4>
+                    <h3 class="contact-ques padd-lr-15"><?= $lang['contact_lang_section']['title_2'] ?></h3>
+                    <h4 class="contact-sub-title padd-lr-15"><?= $lang['contact_lang_section']['title_ms_2'] ?></h4>
                 </div>
 
                 <!-- form điền -->
@@ -79,7 +79,7 @@
                         <div class="row">
                             <div class="form-item col-6 padd-r-15 full-width">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="Tên" required />
+                                    <input type="text" class="form-control" name="name" placeholder="<?= $lang['contact_lang_section']['placeholder']['name'] ?>" required />
                                 </div>
                             </div>
 
@@ -91,20 +91,20 @@
 
                             <div class="form-item col-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="subject" placeholder="Tiêu đề" required />
+                                    <input type="text" class="form-control" name="subject" placeholder="<?= $lang['contact_lang_section']['placeholder']['subject'] ?>" required />
                                 </div>
                             </div>
 
                             <div class="form-item col-12">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="messages" placeholder="Tin nhắn" rows="6" cols="5" required></textarea>
+                                    <textarea class="form-control" name="msg" placeholder="<?= $lang['contact_lang_section']['placeholder']['msg'] ?>" rows="6" cols="5" required></textarea>
                                 </div>
                             </div>
 
                             <div class="form-item col-12">
                                 <div class="form-group">
                                     <button class="btn" type="submit">
-                                        <i class="fa-solid fa-paper-plane"></i> &nbsp; Gửi luôn
+                                        <i class="fa-solid fa-paper-plane"></i> &nbsp; <?= $lang['contact_lang_section']['btn_name'] ?>
                                     </button>
                                 </div>
                             </div>

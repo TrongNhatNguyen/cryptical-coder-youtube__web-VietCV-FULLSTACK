@@ -1,8 +1,11 @@
 /*---------------------------------
 CHẠY CHỮ Ở TRANG GIỚI THIỆU - HOME
 -----------------------------------*/
+string = $('.typing').attr('text-run');
+var array = string.split(',');
+
 var typed = new Typed('.typing', {
-    strings: ['..', 'lập trình viên website!', 'sinh viên FPT Polytechnic!', 'web developer intern >◡◔', '..'],
+    strings: array,
     typeSpeed: 70,
     backSpeed: 10,
     loop: true,

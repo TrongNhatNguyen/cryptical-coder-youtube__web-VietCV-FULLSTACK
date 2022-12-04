@@ -64,7 +64,7 @@
                         <!-- ảnh đại diện -->
                         <div class="home-avatar padd-lr-15">
                             <div class="avatar-inner">
-                                <img src="<?= $base_URL; ?>/public/FRONT_END/images/anh-dai-dien-nhatnguyen-1.jpg" alt="avatar-cua-toi" class="avatar" />
+                                <img src="<?= $base_URL; ?>/public/FRONT_END/images/anh-dai-dien-nhatnguyen-1.jpg" alt="avatar-hugo" class="avatar" />
                             </div>
                         </div>
                     </div>

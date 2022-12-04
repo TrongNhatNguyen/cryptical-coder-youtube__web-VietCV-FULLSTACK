@@ -3,7 +3,7 @@
  *   Đây là trang index dùng để hiển TRANG DASHBOARD ADMIN,
  *   Các section là dùng để gọi các thành phần của trang
  *   cần phần giao diện nào thì khai báo section đồng thời
- *   khai báo vị trí xuất hiện trong file: layouts/base.php
+ *   khai báo vị trí xuất hiện trong file: layout_admin/base_admin.php
  */
 ?>
 
