@@ -1,4 +1,8 @@
 <?php
+// phpcs:ignoreFile
+/**
+ *  Controller xử lý tất cả URL của web,
+ */
 
 namespace Config;
 
@@ -36,11 +40,17 @@ $routes->get('/intro', 'IntroExample::index');
 
 // ĐƯỜNG DẪN URL CHO FRONT-END
 $routes->get('/home/lang/(:any)', [\App\Controllers\FRONT_END\Home::class, 'index'], ['as' => 'home']);
-$routes->get('/home/lang/vie', [\App\Controllers\FRONT_END\Home::class, 'index'], ['as' => 'home.vie']);
-$routes->addRedirect('/', 'home.vie');
+$lang_symbol = DEFAULT_LANG;
+if (session()->has('lang_SESS')) {
+    $lang_symbol = session()->get('lang_SESS');
+}
+$routes->addRedirect('/', '/home/lang/' . $lang_symbol);
 
-// Chuyển đổi ngôn ngữ
-$routes->get('language', [\App\Controllers\FRONT_END\Home::class, 'default_language'], ['as' => 'language']);
+// Cập nhật Section active khi chọn danh mục
+$routes->post('section/active', [\App\Controllers\FRONT_END\Home::class, 'update_section_active'], ['as' => 'section.active']);
+
+// Nhận mail tuyển dụng
+$routes->post('/contact/send-mail', [\App\Controllers\FRONT_END\Home::class, 'contact_send_mail'], ['as' => 'contact.send_mail']);
 
 // ---------------------------------------
 // ĐƯỜNG DẪN URL CHO BACK-END

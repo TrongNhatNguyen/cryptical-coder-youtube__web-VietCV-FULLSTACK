@@ -66,7 +66,7 @@
             </div>
 
             <!-- form gửi email -->
-            <div class="contact-send-email padd-lr-15">
+            <div class="contact-send-email mg-lr-15">
                 <!-- tiêu đề 2 -->
                 <div class="contact-title">
                     <h3 class="contact-ques padd-lr-15"><?= $lang['contact_lang_section']['title_2'] ?></h3>
@@ -75,7 +75,11 @@
 
                 <!-- form điền -->
                 <div class="form-email">
-                    <form action="#" method="get">
+
+                    <!-- Hiển thị lỗi dưới input -->
+                    <div class="show-mess"></div>
+
+                    <form class="form-send-mail-contact" action="<?= base_url() . route_to('contact.send_mail') ?>" method="post">
                         <div class="row">
                             <div class="form-item col-6 padd-r-15 full-width">
                                 <div class="form-group">
@@ -102,14 +106,24 @@
                             </div>
 
                             <div class="form-item col-12">
-                                <div class="form-group">
-                                    <button class="btn" type="submit">
-                                        <i class="fa-solid fa-paper-plane"></i> &nbsp; <?= $lang['contact_lang_section']['btn_name'] ?>
+                                <div class="form-group" style="text-align: center;">
+                                    <button class="btn btn-send-mail" type="submit">
+                                        <i class="fa-solid fa-paper-plane"></i> &nbsp; <span class="text-send-mail"><?= $lang['contact_lang_section']['btn_name'] ?></span>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </form>
+
+                    <!-- Spinner load khi bấm gửi mail -->
+                    <div class="spinner-form-contact">
+                        <div class="container-spinner">
+                            <div class='ring blue'></div>
+                            <div id="content">
+                                <span>wait a moment</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

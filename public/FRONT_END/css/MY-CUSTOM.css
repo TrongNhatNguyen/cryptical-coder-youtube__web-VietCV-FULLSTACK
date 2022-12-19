@@ -54,9 +54,6 @@ body {
     font-size: 1.25rem; /* ~ 20px */
     color: rgb(22, 22, 22);
     /* background: linear-gradient(50deg, var(--color-gradient-a), var(--color-gradient-b)); */
-
-    /* HIỂN THỊ WEB SAU KHI LOAD XONG TẤT CẢ JS */
-    opacity: 0;
     transition: all 0.4s ease-out;
 }
 
@@ -89,6 +86,7 @@ a {
 .main-container {
     width: 100%;
     min-height: 100%;
+    background-blend-mode: multiply; /* night */
 }
 .section {
     display: block;
@@ -131,7 +129,7 @@ a {
 .col-12 {
     flex: 0 0 100%;
     max-width: 100%;
-    text-align: center;
+    /* text-align: center; */
 }
 .padd-lr-15 {
     padding-left: var(--global-mg-padd-spacing);
@@ -162,12 +160,7 @@ a {
 .limit-text {
     width: 100%;
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
-    -webkit-line-clamp: 2;
-}
-.limit-text.disable {
-    -webkit-line-clamp: unset;
+    text-overflow: ellipsis;
 }
 
 @keyframes slideSection {
@@ -448,6 +441,179 @@ a {
     border-right: 10px solid var(--skin-color-used);
     border-bottom: 10px solid var(--skin-color-used);
     border-bottom-right-radius: 6px;
+}
+
+/* background chuyển động */
+.area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../images/bg-home-white.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    transition: all 0.3s ease-in;
+}
+.area.dark {
+    background-image: url('../images/bg-home-black.jpg');
+}
+
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* tạo màu nền các khối hộp */
+    background: linear-gradient(50deg, var(--skin-color-used), var(--bg-white-light));
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+}
+
+.circles li i {
+    color: var(--bg-white-medium);
+}
+
+.circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(50deg, #dc8655, #138086);
+    animation-delay: 0s;
+}
+.circles li:nth-child(1) i {
+    font-size: 40px;
+}
+
+.circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(50deg, #138086, #534666);
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+.circles li:nth-child(2) i {
+    font-size: 10px;
+}
+
+.circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(50deg, #dc8655, #138086);
+    animation-delay: 4s;
+}
+.circles li:nth-child(3) i {
+    font-size: 10px;
+}
+
+.circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(50deg, #138086, #534666);
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+.circles li:nth-child(4) i {
+    font-size: 30px;
+}
+
+.circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(50deg, #dc8655, #138086);
+    animation-delay: 0s;
+}
+.circles li:nth-child(5) i {
+    font-size: 10px;
+}
+
+.circles li:nth-child(6) {
+    left: 75%;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(50deg, #cd7672, #eeb462);
+    animation-delay: 3s;
+}
+.circles li:nth-child(6) i {
+    font-size: 28px;
+}
+
+.circles li:nth-child(7) {
+    left: 35%;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(50deg, #dc8655, #138086);
+    animation-delay: 7s;
+}
+.circles li:nth-child(7) i {
+    font-size: 35px;
+}
+
+.circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(50deg, #cd7672, #eeb462);
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+.circles li:nth-child(8) i {
+    font-size: 12px;
+}
+
+.circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(50deg, #138086, #534666);
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+.circles li:nth-child(9) i {
+    font-size: 7px;
+}
+
+.circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(50deg, #138086, #534666);
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+.circles li:nth-child(10) i {
+    font-size: 60px;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateY(-150vh) rotate(720deg);
+        opacity: 0;
+        border-radius: 80%;
+    }
 }
 
 /* ================================== */
@@ -804,9 +970,11 @@ a {
     max-width: 50%;
 }
 .contact-send-email .form-email {
+    position: relative;
     flex: 0 0 100%;
     max-width: 100%;
-    margin-top: 50px;
+    margin-top: 30px;
+    padding-top: 20px;
 }
 .form-email .form-group {
     margin-bottom: 20px;
@@ -834,6 +1002,41 @@ a {
     font-size: 1.125rem;
     background: var(--skin-color-used);
     border: 1px solid var(--bg-white-bold);
+    margin: 0 auto;
+}
+
+/* Bắt lỗi validate dưới input */
+label.error {
+    color: #ec1839 !important;
+}
+
+/* Thanh thông báo sau khi gửi email */
+.alert {
+    height: 55px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #f44336;
+    color: white;
+    margin-bottom: 20px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+.alert.success {
+    background-color: #04aa6d !important;
+}
+.closebtn {
+    margin-left: 15px;
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.closebtn:hover {
+    color: black;
 }
 
 /* ================================ */
@@ -841,10 +1044,6 @@ a {
     RESPONSIVE TRÌNH DUYỆT LAPTOP
 ---------------------------------*/
 @media (max-width: 1200px) {
-    .limit-text {
-        overflow: hidden; /* thu gọn đoạn text khi width không đủ */
-    }
-
     /*---------------------------
     TRANG LIÊN HỆ - CONTACT
     ---------------------------*/
@@ -875,9 +1074,6 @@ a {
         .section {
             left: 0;
             width: 100vw;
-        }
-        .limit-text {
-            white-space: unset;
         }
 
         /*-------------------------------

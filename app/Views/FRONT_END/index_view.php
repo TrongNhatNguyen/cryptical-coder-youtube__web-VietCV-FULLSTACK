@@ -27,7 +27,34 @@
 <?= $this->include('layouts/skin_switcher') ?>
 <?= $this->endSection() ?>
 
-<!-- ========================================== -->
+<!-- KHUNG CÀI ĐẶT GÓC BÊN PHẢI - Switcher  -->
+<?= $this->section('skin_switcher') ?>
+<?= $this->include('layouts/spinner_loading') ?>
+<?= $this->endSection() ?>
+
+
+<!-- ====================================================== -->
+<!-- TẤT CẢ CÁC FILE JS TỰ VIẾT - JS CUSTOM  -->
+<?= $this->section('ALL_FILE_JS_CUSTOM') ?>
+
+<!-- Hộp thoại Modal hiển thị dự án -->
+<?= $this->include('js/modal_dialog_custom') ?>
+
+<!-- nút cài đặt + đổi màu giao diện -->
+<?= $this->include('js/skin_switcher_setting_custom') ?>
+
+<!-- tạo cuộn mượt với easing.js + smooth-scrollbar.js -->
+<?= $this->include('js/MY_JS_CUSTOM') ?>
+
+<!-- tạo tự động chạy chữ trang giới thiệu - home -->
+<?= $this->include('js/run_text_custom') ?>
+
+<!-- Gửi mail ở trang Liên Hệ - Contact -->
+<?= $this->include('js/send_mail_contact_custom') ?>
+
+<?= $this->endSection() ?>
+<!-- =======================================================-->
+
 
 <!--[ GIỚI THIỆU - Home Section ]  -->
 <?= $this->section('home_section') ?>

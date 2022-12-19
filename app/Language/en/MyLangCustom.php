@@ -4,7 +4,9 @@
  */
 
 return [
-    'lang_en' => [
+    'lang_name'     => 'English',
+    'lang_symbol'   => 'en',
+    'lang_data'     => [
         // Tiêu đề tab trình duyệt
         'page_heading' => 'Hugo CV - Portfotio',
 
@@ -32,7 +34,7 @@ return [
             'intro_2_span' => '.., Web Developer!, Student FPT Polytechnic!, Web Developer Intern >◡◔',
             'text_1'       => 'With more than 3 years of cultivating knowledge through schools, internships, online courses and participating in many different projects.',
             'text_2'       => 'I look forward to using my knowledge and experience to complete the work effectively, bring many core values to customers as well as meet the working needs of your company. A small part of your strength so that your company is always stable and growing.',
-            'show_me'      => 'Go to my bio',
+            'show_me'      => 'Go to my BIO',
         ],
 
 

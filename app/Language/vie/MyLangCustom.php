@@ -4,7 +4,9 @@
  */
 
 return [
-    'lang_vie' => [
+    'lang_name'     => 'Tiếng việt',
+    'lang_symbol'   => 'vie',
+    'lang_data'     => [
         // Tiêu đề tab trình duyệt
         'page_heading' => 'Hugo sơ yếu ý lịch',
 
@@ -35,7 +37,7 @@ return [
                                     công việc một cách hiệu quả, mang đến nhiều giá trị cốt lõi cho khách hàng cũng
                                     như đáp ứng được nhu cầu làm việc của Quý công ty, góp một phần nhỏ sức lực để
                                     Quý công ty luôn ổn định và ngày càng phát triển.',
-            'show_me'      => 'Xem thông tin của tôi',
+            'show_me'      => 'Xem tiểu sử của tôi',
         ],
 
 
@@ -52,7 +54,7 @@ return [
                                 công ty.',
 
             // Bảng thông tin
-            'info_birday'   => 'Ngày sinh',
+            'info_birthday'   => 'Ngày sinh',
             'info_age'      => 'Tuổi',
             'info_degree'   => 'Bằng cấp',
             'info_degree_span' => 'Bằng Cao đẳng loại Giỏi',

@@ -19,6 +19,9 @@
     <link href="<?= base_url(); ?>/public/FRONT_END/css/fontawesome-free-6.2.0-web/css/all.min.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>/public/FRONT_END/css/MY-CUSTOM.css" rel="stylesheet" />
 
+    <!-- CSS hiệu ứng load trang - spinner-loading -->
+    <link rel="stylesheet" href="<?= base_url(); ?>/public/FRONT_END/css/spinner-loading.css" />
+
     <!-- CSS hộp thoại Modal dự án - project -->
     <link rel="stylesheet" href="<?= base_url(); ?>/public/FRONT_END/css/modal-dialog-custom.css" />
 
@@ -38,7 +41,7 @@
         <?= $this->renderSection('menu_sidebar') ?>
 
         <!-- === PHẦN NỘI DUNG CHÍNH === -->
-        <div class="main-content">
+        <div class="main-content" reload-section-active="<?= $section_active ?>" url="<?php echo base_url()  . route_to('section.active'); ?>">
             <!--[ GIỚI THIỆU - Home Section ]  -->
             <?= $this->renderSection('home_section') ?>
 
@@ -63,31 +66,34 @@
     <!--  KHUNG CÀI ĐẶT - Switcher  -->
     <?= $this->renderSection('skin_switcher') ?>
 
+    <!-- Hiệu ứng load trang - spinner-loading -->
+    <?= $this->renderSection('spinner_loading') ?>
+
     <!-- ================================================ -->
-    <!-- JS file -->
-    <script src="<?= base_url(); ?>/public/FRONT_END/js/plugin/jquery-3.6.1.min.js"></script>
-
-    <!-- Hộp thoại Modal hiển thị dự án -->
-    <script src="<?= base_url(); ?>/public/FRONT_END/js/modal-dialog-custom.js"></script>
-
-    <!-- nút cài đặt + đổi màu giao diện -->
-    <script src="<?= base_url(); ?>/public/FRONT_END/js/skin-switcher-seting-custom.js"></script>
-
+    <!-- JS file JQUERY 3.6 -->
+    <script src="<?= base_url(); ?>/public/FRONT_END/js-plugin/jquery-3.6.1.min.js"></script>
     <!-- tạo cuộn mượt với easing.js + smooth-scrollbar.js -->
-    <script src="<?= base_url(); ?>/public/FRONT_END/js/plugin/jquery.easing.min.js"></script>
-    <script src="<?= base_url(); ?>/public/FRONT_END/js/plugin/smooth-scrollbar.js"></script>
-    <script src="<?= base_url(); ?>/public/FRONT_END/js/MY-JS-CUSTOM.js"></script>
-
+    <script src="<?= base_url(); ?>/public/FRONT_END/js-plugin/jquery.easing.min.js"></script>
+    <script src="<?= base_url(); ?>/public/FRONT_END/js-plugin/smooth-scrollbar.js"></script>
     <!-- tạo tự động chạy chữ trang giới thiệu - home -->
-    <script src="<?= base_url(); ?>/public/FRONT_END/js/plugin/typed.min.js"></script>
-    <script src="<?= base_url(); ?>/public/FRONT_END/js/run-text-custom.js"></script>
+    <script src="<?= base_url(); ?>/public/FRONT_END/js-plugin/typed.min.js"></script>
+    <!-- Báo Xác thực Form input ở trên form liên hệ - Contact -->
+    <script src="<?= base_url(); ?>/public/FRONT_END/js-plugin/jquery.validate.min.js"></script>
+
+    <?= $this->renderSection('ALL_FILE_JS_CUSTOM') ?>
+
     <script>
-        /*----------------------------------------
+        /*----------------------------------------------
             HIỂN THỊ WEB SAU KHI LOAD XONG TẤT CẢ JS
-            -----------------------------------------*/
-        $(document).ready(function() {
-            $('body').css('opacity', 1);
-            // sessionStorage.clear();
+        -----------------------------------------------*/
+        window.onload = function() {
+            setTimeout(function() {
+                $('.spinner-loading').fadeOut();
+                $('.spinner-form-contact').fadeOut();
+            }, 1200);
+        };
+        $(window).on('beforeunload', function() {
+            $('.spinner-loading').fadeIn();
         });
     </script>
 </body>

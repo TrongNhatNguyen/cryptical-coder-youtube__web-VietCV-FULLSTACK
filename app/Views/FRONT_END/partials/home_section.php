@@ -44,4 +44,20 @@
             </div>
         </div>
     </div>
+
+    <!-- Background chuyển động -->
+    <div class="area dark">
+        <ul class="circles">
+            <li><i class="fa-brands fa-php"></i></li>
+            <li><i class="fa-solid fa-palette"></i></li>
+            <li></li>
+            <li><i class="fa-brands fa-css3"></i></li>
+            <li></li>
+            <li><i class="fa-brands fa-windows"></i></li>
+            <li><i class="fa-solid fa-code"></i></li>
+            <li></li>
+            <li><i class="fa-regular fa-star"></i></li>
+            <li><i class="fa-brands fa-github"></i></li>
+        </ul>
+    </div>
 </section>
