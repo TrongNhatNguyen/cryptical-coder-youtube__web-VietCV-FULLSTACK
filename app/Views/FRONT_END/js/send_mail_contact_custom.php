@@ -3,7 +3,7 @@
         // ======================================
         var form_send_mail_contact = $('.form-send-mail-contact');
         if (form_send_mail_contact.length > 0) {
-            console.log('send mail contact...');
+            console.log('send mail contact is ready...');
 
             // bắt lỗi input
             form_send_mail_contact.validate({
@@ -19,24 +19,24 @@
                     subject: {
                         required: true,
                     },
-                    message: {
+                    msg: {
                         required: true,
                     },
                 },
                 messages: {
                     name: {
-                        required: 'Vui lòng nhập Họ Tên',
+                        required: '<?= $lang['contact_lang_section']['valid']['name'] ?>',
                     },
                     email: {
-                        required: 'Vui lòng nhập email',
-                        email: 'email của bạn không hợp lệ',
-                        maxlength: 'Tên email phải nhỏ hơn hoặc bằng 50 ký tự',
+                        required: '<?= $lang['contact_lang_section']['valid']['email'] ?>',
+                        email: '<?= $lang['contact_lang_section']['valid']['email_regex'] ?>',
+                        maxlength: '<?= $lang['contact_lang_section']['valid']['email_maxlength'] ?>',
                     },
                     subject: {
-                        required: 'Vui lòng thêm tiêu đề email',
+                        required: '<?= $lang['contact_lang_section']['valid']['subject'] ?>',
                     },
-                    message: {
-                        required: 'Vui lòng thêm Tin nhắn',
+                    msg: {
+                        required: '<?= $lang['contact_lang_section']['valid']['msg'] ?>',
                     },
                 },
                 submitHandler: function() {
@@ -46,21 +46,29 @@
                         type: 'POST',
                         data: form_send_mail_contact.serialize(),
                         dataType: 'json',
-                        beforeSend: function() {
+                        beforeSend: function() { // ---------------------------------------------
                             disableScroll();
-                            $('.text-send-mail').html('Đang gửi..');
+                            $('.spinner-form-contact').fadeIn();
+                            $('.text-btn').html('<?= $lang['contact_lang_section']['btn_sending'] ?>');
                         },
-                        success: function(response) {
+                        success: function(response) { // ----------------------------------------
                             enableScroll();
-                            $('.text-send-mail').html('Gửi luôn');
+                            $('.spinner-form-contact').fadeOut();
+                            $('.text-btn').html('<?= $lang['contact_lang_section']['btn_send'] ?>');
+
                             if (response.status == 'success') {
                                 show_mess(true, response.msg, 'success');
                             }
+
+                            if (response.status == 'error') {
+                                show_mess(true, response.msg, 'error');
+                            }
+
                             setTimeout(function() {
                                 show_mess(false);
                             }, 5000);
                         },
-                        error: function(response) {
+                        error: function(response) { // -------------------------------------------
                             console.log(response);
                             alert(response.msg);
                         },
@@ -70,23 +78,34 @@
         }
     });
 
-    function show_mess(active = true, message = '', status = '') {
-        if (active == true) {
-            const js_hidden = "this.parentElement.style.display='none';";
-            $('.show-mess').html(
-                '<div class="alert ' +
-                status +
-                '">\
-                <span class="closebtn" onclick="' +
-                js_hidden +
-                '">&times;</span>\
-                ' +
-                message +
-                '\
-            </div>',
-            );
-        } else {
-            $('.show-mess').html('');
+    function show_mess(show = true, message = '', status = '') {
+
+        const HTML_NOTIFY = '<div class="alert ' + status + '"><span class="closebtn" onclick="show_mess(false);">&times;</span>' + message + '</div>',
+            time = 800,
+            height = $('.notify-container').css('--height-notify');
+
+        // hiển thị thanh notify:
+        if (show == true) {
+            $('.notify-container').html(HTML_NOTIFY).animate({
+                height: height,
+                opacity: 1,
+            }, time);
+            $('.notify-container').children('div').animate({
+                top: 0,
+                opacity: 1,
+            }, time);
+        }
+
+        // ẩn thanh notify:
+        if (show == false) {
+            $('.notify-container').animate({
+                height: 0,
+                opacity: 0,
+            }, time);
+            $('.notify-container').children('div').animate({
+                top: '-' + height,
+                opacity: 0,
+            }, time);
         }
     }
 

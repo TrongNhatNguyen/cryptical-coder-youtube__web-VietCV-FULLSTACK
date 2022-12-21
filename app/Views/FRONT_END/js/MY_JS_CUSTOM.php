@@ -29,7 +29,7 @@
         /* ----------------------------------------
         HIỆN LẠI SECTION ĐANG ACTIVE KHI reload
         ----------------------------------------- */
-        var reload_section_active = $('.main-content').attr('reload-section-active');
+        var reload_section_active = '<?= $section_active ?>';
         slideSectionToggle(reload_section_active);
 
         /* ----------------------------------------
@@ -75,7 +75,7 @@
         }
 
         function update_section_reload(section_active) {
-            var url_update_section = $('.main-content').attr('url');
+            var url_update_section = '<?= base_url()  . route_to('section.active'); ?>';
 
             $.ajax({
                 type: 'post',

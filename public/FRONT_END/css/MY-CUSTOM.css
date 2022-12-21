@@ -1007,31 +1007,42 @@ a {
 
 /* Bắt lỗi validate dưới input */
 label.error {
-    color: #ec1839 !important;
+    color: #e74c3c !important;
 }
 
-/* Thanh thông báo sau khi gửi email */
+/*---------------------------------------
+    Thanh Notify sau khi gửi email
+----------------------------------------*/
+.notify-container {
+    --height-notify: 65px;
+    position: relative;
+    width: 100%;
+    height: 0;
+    margin-bottom: 15px;
+    opacity: 0;
+}
 .alert {
-    height: 55px;
-    padding: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--height-notify);
+    line-height: var(--height-notify);
+    padding: 0 25px;
     border-radius: 15px;
     background-color: #f44336;
     color: white;
-    margin-bottom: 20px;
-    opacity: 1;
-    transition: opacity 1s;
+    opacity: 0;
 }
 .alert.success {
     background-color: #04aa6d !important;
 }
 .closebtn {
-    margin-left: 15px;
-    margin-right: 10px;
     color: white;
     font-weight: bold;
     float: right;
-    font-size: 22px;
-    line-height: 20px;
+    font-size: 25px;
+    line-height: var(--height-notify);
     cursor: pointer;
     transition: 0.5s;
 }

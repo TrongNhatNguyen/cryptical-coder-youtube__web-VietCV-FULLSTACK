@@ -101,8 +101,7 @@
     THAY ĐỔI NGÔN NGỮ TRONG CÀI ĐẶT
     ----------------------------------*/
     $('#lang_selector').on('change', function(e) {
-        const base_url = $(this).attr('base-url');
         const lang_selected = $(this).val();
-        window.location.replace(base_url + '/home/lang/' + lang_selected);
+        window.location.replace('<?= base_url() ?>/home/lang/' + lang_selected);
     });
 </script>

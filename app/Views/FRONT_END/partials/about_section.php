@@ -53,7 +53,7 @@
                         <p><?= $lang['about_lang_section']['info_phone'] ?> : <span>0327 485 717</span></p>
                     </div>
                     <div class="info-item padd-r-15 full-width">
-                        <p><?= $lang['about_lang_section']['info_city'] ?> : <span>TP.Biên Hoà, Đồng nai</span></p>
+                        <p><?= $lang['about_lang_section']['info_city'] ?> : <span><?= $lang['about_lang_section']['info_city_span'] ?></span></p>
                     </div>
                 </div>
 

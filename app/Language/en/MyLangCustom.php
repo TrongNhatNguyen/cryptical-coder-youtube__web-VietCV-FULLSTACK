@@ -53,6 +53,7 @@ return [
             'info_degree_span' => 'Excellent college degree',
             'info_phone'    => 'Phone',
             'info_city'     => 'City',
+            'info_city_span'     => 'Bien Hoa City, Dong Nai',
 
             // Nút tải
             'down_cv' => 'Download CV',
@@ -133,14 +134,14 @@ return [
 
 
         // -------------------------------------------------
-        // Nội dung chi tiết trang KỸ NĂNG - SERVICE
+        // Nội dung chi tiết trang DỰ ÁN - PROJECT
         'project_lang_section' => [
             'intro' => 'Below are my own projects in the process of learning and gaining knowledge and experience',
         ],
 
 
         // -------------------------------------------------
-        // Nội dung chi tiết trang KỸ NĂNG - SERVICE
+        // Nội dung chi tiết trang LIÊN HỆ - CONTACT
         'contact_lang_section' => [
             'title_1'       => 'Do you have any questions ?',
             'title_ms_1'    => "I'm always here to be exchanged",
@@ -157,7 +158,25 @@ return [
                 'subject'   => 'subject',
                 'msg'       => 'your message',
             ],
-            'btn_name'      => 'Send now',
+            'btn_send'      => 'Send now',
+            'btn_sending'   => 'Processing...',
+
+            // Hiển thị validate input
+            'valid' => [
+                'name'      => 'Please enter your name',
+                'email'     => 'Please enter your email',
+                'email_regex'      => 'Email address is not valid',
+                'email_maxlength'  => 'Email name must be less than 50 characters',
+                'subject'   => 'Please add email subject',
+                'msg'       => 'Please add message content',
+            ],
+
+            // hiển thị thông báo phản hồi khi gửi mail
+            'send_mail_success' => 'Thanks for contacting me. I will reply to you soon!',
+            'send_mail_error'   => 'There was an error sending the email, please try again!',
+
+            // text loading spinner
+            'text_spinner'  => 'wait a moment..',
         ],
     ],
 ];

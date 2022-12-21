@@ -76,10 +76,10 @@
                 <!-- form điền -->
                 <div class="form-email">
 
-                    <!-- Hiển thị lỗi dưới input -->
-                    <div class="show-mess"></div>
+                    <!-- Hiển thông báo khi gửi mail -->
+                    <div class="notify-container"></div>
 
-                    <form class="form-send-mail-contact" action="<?= base_url() . route_to('contact.send_mail') ?>" method="post">
+                    <form class="form-send-mail-contact" action="<?= base_url() . route_to('contact.send_mail') ?>" method="POST">
                         <div class="row">
                             <div class="form-item col-6 padd-r-15 full-width">
                                 <div class="form-group">
@@ -108,7 +108,7 @@
                             <div class="form-item col-12">
                                 <div class="form-group" style="text-align: center;">
                                     <button class="btn btn-send-mail" type="submit">
-                                        <i class="fa-solid fa-paper-plane"></i> &nbsp; <span class="text-send-mail"><?= $lang['contact_lang_section']['btn_name'] ?></span>
+                                        <i class="fa-solid fa-paper-plane"></i> &nbsp; <span class="text-btn"><?= $lang['contact_lang_section']['btn_send'] ?></span>
                                     </button>
                                 </div>
                             </div>
@@ -118,9 +118,9 @@
                     <!-- Spinner load khi bấm gửi mail -->
                     <div class="spinner-form-contact">
                         <div class="container-spinner">
-                            <div class='ring blue'></div>
+                            <div class='ring my-color'></div>
                             <div id="content">
-                                <span>wait a moment</span>
+                                <span><?= $lang['contact_lang_section']['text_spinner'] ?></span>
                             </div>
                         </div>
                     </div>

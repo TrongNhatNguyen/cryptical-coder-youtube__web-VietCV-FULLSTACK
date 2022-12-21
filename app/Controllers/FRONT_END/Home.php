@@ -52,6 +52,7 @@ class Home extends Controller
         }
 
         if ($lang_req && ($lang_req == 'vie' || $lang_req == 'en')) {
+            $this->session->remove('lang_SESS');
             $this->session->set('lang_SESS', $lang_req);
         }
 
@@ -72,6 +73,7 @@ class Home extends Controller
 
         if ($this->mRequest->isAJAX()) {
             $val = $this->mRequest->getPost('section_req');
+            $this->session->remove('lang_SESS');
             $this->session->set('section_SESS', $val);
         }
 
@@ -84,6 +86,7 @@ class Home extends Controller
     // Gửi mail ở form Contact
     public function contact_send_mail()
     {
+        $lang_symbol = $this->session->get('lang_SESS');
         $form_data = [
             'name'      => $this->mRequest->getVar('name'),
             'email'     => $this->mRequest->getVar('email'),
@@ -92,19 +95,19 @@ class Home extends Controller
         ];
 
         $result = $this->sending_mail($form_data);
+
         if ($result == true) {
             $resData = [
-                'status' => 'success',
-                'csrf' => csrf_hash(),
-                'msg' => "Cảm ơn đã liên hệ với tôi. Tôi sẽ sớm phản hồi đến bạn"
+                'status'    => 'success',
+                'csrf'      => csrf_hash(),
+                'msg'       => lang('MyLangCustom.lang_data.contact_lang_section.send_mail_success', [], $lang_symbol),
             ];
 
             return $this->response->setJSON($resData, 200);
         } else {
             $resData = [
-                'status' => 'error',
-                'csrf' => csrf_hash(),
-                'msg' => "Có lỗi trong quá trình gửi mail, vui lòng thử lại"
+                'status'    => 'error',
+                'msg'       => lang('MyLangCustom.lang_data.contact_lang_section.send_mail_error', [], $lang_symbol),
             ];
             return $this->response->setJSON($resData, 404);
         }

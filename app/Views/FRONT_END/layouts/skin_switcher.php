@@ -25,7 +25,7 @@
     </div>
     <h5><?= $lang['skin_switcher']['lang'] ?></h5>
     <div class="lang">
-        <select id="lang_selector" base-url="<?= base_url() ?>">
+        <select id="lang_selector">
             <option value="vie" <?php if ($lang['symbol'] == 'vie') {
                                     echo 'selected';
                                 } ?>>Tiếng việt</option>

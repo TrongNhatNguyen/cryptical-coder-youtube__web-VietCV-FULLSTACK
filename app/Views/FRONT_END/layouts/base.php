@@ -41,7 +41,7 @@
         <?= $this->renderSection('menu_sidebar') ?>
 
         <!-- === PHẦN NỘI DUNG CHÍNH === -->
-        <div class="main-content" reload-section-active="<?= $section_active ?>" url="<?php echo base_url()  . route_to('section.active'); ?>">
+        <div class="main-content">
             <!--[ GIỚI THIỆU - Home Section ]  -->
             <?= $this->renderSection('home_section') ?>
 

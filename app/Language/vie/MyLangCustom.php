@@ -60,6 +60,7 @@ return [
             'info_degree_span' => 'Bằng Cao đẳng loại Giỏi',
             'info_phone'    => 'Điện thoại',
             'info_city'     => 'Thành phố',
+            'info_city_span'     => 'TP. Biên Hoà, Đồng Nai',
 
             // Nút tải
             'down_cv' => 'Tải lý lịch',
@@ -141,14 +142,14 @@ return [
 
 
         // -------------------------------------------------
-        // Nội dung chi tiết trang KỸ NĂNG - SERVICE
+        // Nội dung chi tiết trang DỰ ÁN - PROJECT
         'project_lang_section' => [
             'intro' => 'Dưới dây là những dự án của bản thân trong quá trình học hỏi trao dồi kiến thức, kinh nghiệm',
         ],
 
 
         // -------------------------------------------------
-        // Nội dung chi tiết trang KỸ NĂNG - SERVICE
+        // Nội dung chi tiết trang LIÊN HỆ - CONTACT
         'contact_lang_section' => [
             'title_1'       => 'Anh / chị có bất kỳ câu hỏi nào không ?',
             'title_ms_1'    => 'Tôi luôn ở đây để được trao đổi',
@@ -165,7 +166,25 @@ return [
                 'subject'   => 'Tiêu đề',
                 'msg'       => 'Tin nhắn',
             ],
-            'btn_name'      => 'Gửi luôn',
+            'btn_send'      => 'Gửi luôn',
+            'btn_sending'   => 'Đang gửi...',
+
+            // Hiển thị validate input
+            'valid' => [
+                'name'      => 'Vui lòng nhập Họ Tên',
+                'email'     => 'Vui lòng nhập địa chỉ email',
+                'email_regex'      => 'Email của bạn không hợp lệ',
+                'email_maxlength'  => 'Tên email phải nhỏ hơn 50 ký tự',
+                'subject'   => 'Vui lòng tiêu đề email',
+                'msg'       => 'Vui lòng nội dung tin nhắn',
+            ],
+
+            // hiển thị thông báo phản hồi khi gửi mail
+            'send_mail_success' => 'Cảm ơn đã liên hệ với tôi. Tôi sẽ sớm phản hồi đến bạn!',
+            'send_mail_error'   => 'Có lỗi trong quá trình gửi mail, vui lòng thử lại!',
+
+            // text loading spinner
+            'text_spinner'  => 'đợi một chút..',
         ],
     ],
 ];
