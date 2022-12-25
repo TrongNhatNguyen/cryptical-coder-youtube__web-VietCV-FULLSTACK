@@ -32,6 +32,8 @@
     --bg-white-medium: #f2f2fc;
     --bg-white-bold: #e8dfec;
 
+    --bg-form-control: #fdfefe;
+
     --width-aside: 270px; /* chiều rộng menu danh mục */
     --global-mg-padd-spacing: 1rem; /* ~ 16px, khoảng cách magin, padd mặc định */
     --outline-spacing: 1.5625rem; /* ~ 25px, khoảng cách viền ngoài cùng */
@@ -44,6 +46,8 @@ body.dark {
     --bg-white-light: #393939;
     --bg-white-medium: #222222;
     --bg-white-bold: #151515;
+
+    --bg-form-control: #e5e7e9;
 }
 
 body {
@@ -983,17 +987,14 @@ a {
     width: 100%;
     padding: 13px 15px;
 
-    font-size: 1.125rem; /* ~ 18px */
+    font-size: 1.125rem;
     font-family: 'Nunito-Regular';
     font-weight: 600;
-    color: var(--text-black-700);
-    background: var(--bg-white-medium);
-
-    border-radius: 25px;
+    color: #2c3e50;
+    background: var(--bg-form-control);
+    border: 1px solid #f2f4f4;
     border: 1px solid var(--bg-white-bold);
-    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.3), inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
-        -0.5px -0.5px 0 rgba(255, 255, 255, 1), 0.5px 0.5px 0 rgba(0, 0, 0, 0.15),
-        0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
 }
 .form-email .form-group textarea {
     resize: none; /* tắt kéo rộng khung nhập */

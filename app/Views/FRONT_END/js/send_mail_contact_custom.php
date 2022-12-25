@@ -58,6 +58,7 @@
 
                             if (response.status == 'success') {
                                 show_mess(true, response.msg, 'success');
+                                console.log(response.data);
                             }
 
                             if (response.status == 'error') {
@@ -69,8 +70,7 @@
                             }, 5000);
                         },
                         error: function(response) { // -------------------------------------------
-                            console.log(response);
-                            alert(response.msg);
+                            alert('Có lỗi trong quá trình xử lý: ' + response.msg);
                         },
                     }); // end ajax!
                 },

@@ -7,12 +7,14 @@
 namespace App\Controllers\FRONT_END;
 
 use CodeIgniter\Controller;
+use App\Models\ContactModel;
 
 class Home extends Controller
 {
     protected $email;
     protected $session;
     protected $mRequest;
+    protected $contactModel;
 
     function __construct()
     {
@@ -23,6 +25,8 @@ class Home extends Controller
         $this->mRequest = service("request");       // Cách 2
 
         $this->email = \Config\Services::email();
+
+        $this->contactModel = new ContactModel();
     }
 
 
@@ -45,23 +49,34 @@ class Home extends Controller
 
 
     // Thay đổi ngôn ngữ trong phần Cài đặt bên phải web
-    public function change_language($lang_req = '')
+    public function change_language($lang_symbol = '', $lang_key = '')
     {
         if (!$this->session->has('lang_SESS')) {
             $this->session->set('lang_SESS', DEFAULT_LANG);
         }
 
-        if ($lang_req && ($lang_req == 'vie' || $lang_req == 'en')) {
+        if ($lang_symbol && ($lang_symbol == 'vie' || $lang_symbol == 'en')) {
             $this->session->remove('lang_SESS');
-            $this->session->set('lang_SESS', $lang_req);
+            $this->session->set('lang_SESS', $lang_symbol);
         }
 
         $lang_symbol = $this->session->get('lang_SESS');
 
-        $lang = lang('MyLangCustom.lang_data', [], $lang_symbol);
-        $lang['name'] = lang('MyLangCustom.lang_name', [], $lang_symbol);
-        $lang['symbol'] = lang('MyLangCustom.lang_symbol', [], $lang_symbol);
-        return $lang;
+        // nếu ko có từ khoá cụ thể thì lấy hết tất cả đoạn Dịch
+        if (!$lang_key) {
+            $lang = lang('MyLangCustom.lang_data', [], $lang_symbol);
+            $lang['name'] = lang('MyLangCustom.lang_name', [], $lang_symbol);
+            $lang['symbol'] = lang('MyLangCustom.lang_symbol', [], $lang_symbol);
+
+            return $lang;
+        }
+
+        // chỉ lấy đúng đoạn dịch theo từ khoá cụ thể
+        if ($lang_key) {
+            $lang = lang('MyLangCustom.lang_data.' . $lang_key, [], $lang_symbol);
+
+            return $lang;
+        }
     }
 
     // Thay đổi Section và hiển thị khi reload
@@ -86,7 +101,6 @@ class Home extends Controller
     // Gửi mail ở form Contact
     public function contact_send_mail()
     {
-        $lang_symbol = $this->session->get('lang_SESS');
         $form_data = [
             'name'      => $this->mRequest->getVar('name'),
             'email'     => $this->mRequest->getVar('email'),
@@ -97,17 +111,29 @@ class Home extends Controller
         $result = $this->sending_mail($form_data);
 
         if ($result == true) {
+            // lưu vào Database:
+            helper(['form', 'url']);
+            $saveID = $this->contactModel->insert([
+                'name'      => $form_data['name'],
+                'email'     => $form_data['email'],
+                'subject'   => $form_data['subject'],
+                'message'   => $form_data['msg'],
+                'reply_status'      => 0,
+                'reply_message'     => null,
+                'status'    => 1,
+            ]);
+
             $resData = [
                 'status'    => 'success',
                 'csrf'      => csrf_hash(),
-                'msg'       => lang('MyLangCustom.lang_data.contact_lang_section.send_mail_success', [], $lang_symbol),
+                'data'      => $this->contactModel->find($saveID),
+                'msg'       => $this->change_language('', 'contact_lang_section.send_mail_success'),
             ];
-
             return $this->response->setJSON($resData, 200);
         } else {
             $resData = [
                 'status'    => 'error',
-                'msg'       => lang('MyLangCustom.lang_data.contact_lang_section.send_mail_error', [], $lang_symbol),
+                'msg'       => $this->change_language('', 'contact_lang_section.send_mail_error'),
             ];
             return $this->response->setJSON($resData, 404);
         }
