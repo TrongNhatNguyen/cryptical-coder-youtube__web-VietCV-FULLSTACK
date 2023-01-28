@@ -4,8 +4,9 @@
     right: 0;
     width: 200px;
     height: auto;
-    padding: 10px 10px;
+    padding: 10px 10px 20px 10px;
 
+    text-align: center;
     border: 1px solid var(--bg-white-bold);
     border-radius: 10px;
     background: var(--bg-white-light);
@@ -60,7 +61,7 @@
     KHUNG ĐỔI MÀU
 --------------------------*/
 
-.skin-switcher h4 {
+.skin-switcher h5 {
     margin-bottom: 10px;
     color: var(--text-black-900);
 }
@@ -68,6 +69,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 15px;
 }
 .skin-switcher .colors span {
     display: inline-block;
@@ -95,4 +97,20 @@
 }
 .colors span.color-5 {
     background: var(--skin-color-5);
+}
+
+/*-------------------------
+    KHUNG ĐỔI NGÔN NGỮ
+--------------------------*/
+.lang {
+    width: 100%;
+    height: 20px;
+    position: relative;
+    font-family: Arial;
+}
+.lang select {
+    width: 80%;
+    padding: 3px;
+    border-radius: 7px;
+    font-size: 17px;
 }

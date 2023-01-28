@@ -16,27 +16,37 @@
     <ul class="nav">
         <li>
             <a href="#home" class="smooth-scroll active" rel="noopener noreferrer">
-                <i class="fa fa-home"></i><span class="cate-name">Giới Thiệu</span>
+                <i class="fa fa-home"></i><span class="cate-name">
+                    <?= $lang['page_title']['home_title'] ?>
+                </span>
             </a>
         </li>
         <li>
             <a href="#about" class="smooth-scroll" rel="noopener noreferrer">
-                <i class="fa fa-user"></i><span class="cate-name">Thông Tin</span>
+                <i class="fa fa-user"></i><span class="cate-name">
+                    <?= $lang['page_title']['about_title'] ?>
+                </span>
             </a>
         </li>
         <li>
             <a href="#service" class="smooth-scroll" rel="noopener noreferrer">
-                <i class="fa fa-list"></i><span class="cate-name">Kỹ Năng</span>
+                <i class="fa fa-list"></i><span class="cate-name">
+                    <?= $lang['page_title']['service_title'] ?>
+                </span>
             </a>
         </li>
         <li>
             <a href="#project" class="smooth-scroll" rel="noopener noreferrer">
-                <i class="fa fa-briefcase"></i><span class="name">Dự Án</span>
+                <i class="fa fa-briefcase"></i><span class="name">
+                    <?= $lang['page_title']['project_title'] ?>
+                </span>
             </a>
         </li>
         <li>
             <a href="#contact" class="smooth-scroll" rel="noopener noreferrer">
-                <i class="fa fa-comments"></i><span class="name">Liên Hệ</span>
+                <i class="fa fa-comments"></i><span class="name">
+                    <?= $lang['page_title']['contact_title'] ?>
+                </span>
             </a>
         </li>
     </ul>

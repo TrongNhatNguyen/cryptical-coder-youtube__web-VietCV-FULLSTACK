@@ -9,23 +9,22 @@
         <!-- tiêu đề -->
         <div class="row">
             <div class="section-title padd-lr-15">
-                <h2>Thông Tin</h2>
+                <h2><?= $lang['page_title']['about_title'] ?></h2>
             </div>
         </div>
 
         <!-- đoạn giới thiệu -->
         <div class="row">
             <div class="about-text padd-lr-15">
-                <h3>Tôi là Nguyễn Trọng Nhật và là một <span>lập trình viên website</span></h3>
+                <h3>
+                    <?= $lang['about_lang_section']['intro'] ?>
+                    <span><?= $lang['about_lang_section']['intro_span'] ?></span>
+                </h3>
                 <p>
-                    Chuyên môn của tôi là lập trình Website cả về mảng front-end lẫn back-end, làm việc
-                    với Cơ sở dữ liệu, thiết kế và chỉnh sửa logo, banner, bố cục giao diện cơ bản với
-                    Photoshop và một số chức năng khác...
+                    <?= $lang['about_lang_section']['text_1'] ?>
                 </p>
                 <p>
-                    Tôi hy vọng tìm kiếm một vị trí phù hợp tại công ty có các dự án với độ thử thách
-                    cao, nơi là hiệu suất làm việc được công nhận đáp ứng được nhu cầu làm việc của Quý
-                    công ty.
+                    <?= $lang['about_lang_section']['text_2'] ?>
                 </p>
             </div>
         </div>
@@ -36,10 +35,10 @@
             <div class="personal-info padd-lr-15">
                 <div class="row">
                     <div class="info-item padd-r-15">
-                        <p>Ngày Sinh : <span>23 / 06 / 2000</span></p>
+                        <p><?= $lang['about_lang_section']['info_birthday'] ?> : <span>23 / 06 / 2000</span></p>
                     </div>
                     <div class="info-item padd-l-15">
-                        <p>Tuổi : <span>23</span></p>
+                        <p><?= $lang['about_lang_section']['info_age'] ?> : <span>23</span></p>
                     </div>
                     <div class="info-item padd-r-15 full-width">
                         <p class="limit-text">Website : <span>www.hugonhatnguyen.com</span></p>
@@ -48,13 +47,13 @@
                         <p class="limit-text">Email : <span>hugodev2306000@gmail.com</span></p>
                     </div>
                     <div class="info-item padd-r-15 full-width">
-                        <p>Chứng chỉ : <span>Bằng Cao Đẳng loại Giỏi</span></p>
+                        <p><?= $lang['about_lang_section']['info_degree'] ?> : <span><?= $lang['about_lang_section']['info_degree_span'] ?></span></p>
                     </div>
                     <div class="info-item padd-l-15 full-width">
-                        <p>Điện Thoại : <span>0327 485 717</span></p>
+                        <p><?= $lang['about_lang_section']['info_phone'] ?> : <span>0327 485 717</span></p>
                     </div>
                     <div class="info-item padd-r-15 full-width">
-                        <p>Thành Phố : <span>TP.Biên Hoà, Đồng nai</span></p>
+                        <p><?= $lang['about_lang_section']['info_city'] ?> : <span><?= $lang['about_lang_section']['info_city_span'] ?></span></p>
                     </div>
                 </div>
 
@@ -130,7 +129,9 @@
                 <div class="row">
                     <!-- box-trái -->
                     <div class="timeline padd-r-15">
-                        <h3 class="title">Học vấn</h3>
+                        <h3 class="title">
+                            <?= $lang['about_lang_section']['timeline_edu_title'] ?>
+                        </h3>
                         <div class="timeline-box">
                             <!-- list -->
                             <div class="timeline-item">
@@ -138,21 +139,22 @@
                                 <h3 class="timeline-calendar">
                                     <i class="fa fa-calendar"></i> 09/2018 - 04/2021
                                 </h3>
-                                <h4 class="timeline-title">Student Dev Website - FPT Polytechnic</h4>
+                                <h4 class="timeline-title"><?= $lang['about_lang_section']['timeline_edu_1']['title'] ?></h4>
                                 <div class="timeline-text">
                                     <p>
-                                        Chịu trách nhiệm làm việc với nhiều dự án, thiết kế các trang
-                                        web hấp dẫn, tương tác hàng ngày với thầy cô và các bạn.
+                                        <?= $lang['about_lang_section']['timeline_edu_1']['text_1'] ?>
                                     </p>
                                     <p>
-                                        Viết HTML-CSS tốt, tương thích với nhiều trình duyệt
-                                        (cross-browser), biết JavaScript căn bản.
+                                        <?= $lang['about_lang_section']['timeline_edu_1']['text_2'] ?>
                                     </p>
-                                    <p>Học hỏi và duy trì chức năng Back-end của các trang web.</p>
-                                    <p>Hiểu, xây dựng và quản lý cơ sở dữ liệu.</p>
                                     <p>
-                                        Tham gia thảo luận với bạn bè để làm rõ những vấn đề khi làm dự
-                                        án.
+                                        <?= $lang['about_lang_section']['timeline_edu_1']['text_3'] ?>
+                                    </p>
+                                    <p>
+                                        <?= $lang['about_lang_section']['timeline_edu_1']['text_4'] ?>
+                                    </p>
+                                    <p>
+                                        <?= $lang['about_lang_section']['timeline_edu_1']['text_5'] ?>
                                     </p>
                                 </div>
                             </div>
@@ -162,11 +164,17 @@
                                 <h3 class="timeline-calendar">
                                     <i class="fa fa-calendar"></i> 04/2021 - 07/2021
                                 </h3>
-                                <h4 class="timeline-title">Anh Văn Top Notch 2.2</h4>
+                                <h4 class="timeline-title"><?= $lang['about_lang_section']['timeline_edu_2']['title'] ?></h4>
                                 <div class="timeline-text">
-                                    <p>Học hỏi và nắm bắt các từ ngữ chuyên nghành.</p>
-                                    <p>Đọc hiểu tài liệu cơ bản.</p>
-                                    <p>Tham gia thuyết trình với bạn bè</p>
+                                    <p>
+                                        <?= $lang['about_lang_section']['timeline_edu_2']['text_1'] ?>
+                                    </p>
+                                    <p>
+                                        <?= $lang['about_lang_section']['timeline_edu_2']['text_2'] ?>
+                                    </p>
+                                    <p>
+                                        <?= $lang['about_lang_section']['timeline_edu_2']['text_3'] ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +182,9 @@
 
                     <!-- box-phải -->
                     <div class="timeline padd-l-15">
-                        <h3 class="title">kinh nghiệm</h3>
+                        <h3 class="title">
+                            <?= $lang['about_lang_section']['timeline_expe'] ?>
+                        </h3>
                         <div class="timeline-box">
                             <!-- list -->
                             <div class="timeline-item">
@@ -183,24 +193,20 @@
                                     <i class="fa fa-calendar"></i> 04/2021 - 08/2021
                                 </h3>
                                 <h4 class="timeline-title">
-                                    Internship Developer - Silkwires Digital Agency
+                                    <?= $lang['about_lang_section']['timeline_expe_1']['title'] ?>
                                 </h4>
                                 <div class="timeline-text">
                                     <p>
-                                        Được hướng dẫn, chỉ bảo tận tình các kiến thức mới, kỹ năng làm
-                                        việc nhóm.
+                                        <?= $lang['about_lang_section']['timeline_expe_1']['text_1'] ?>
                                     </p>
                                     <p>
-                                        Tiếp thu và học hỏi những nền tảng và kinh nghiệm trong môi
-                                        trường làm làm việc thực tế.
+                                        <?= $lang['about_lang_section']['timeline_expe_1']['text_2'] ?>
                                     </p>
                                     <p>
-                                        Tham gia dự án thực tế tại công ty, được phân công và hoàn thành
-                                        các yêu cầu của dự án đúng thời gian.
+                                        <?= $lang['about_lang_section']['timeline_expe_1']['text_3'] ?>
                                     </p>
                                     <p>
-                                        Làm quen và trao dồi thêm kĩ năng làm việc nhóm, phân chia tiến
-                                        độ,..
+                                        <?= $lang['about_lang_section']['timeline_expe_1']['text_4'] ?>
                                     </p>
                                 </div>
                             </div>

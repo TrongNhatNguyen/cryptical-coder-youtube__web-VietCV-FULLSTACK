@@ -15,12 +15,23 @@
         <i class="fas fa-sun"></i>
     </div>
 
-    <h4>Màu Chủ Đề</h4>
+    <h5><?= $lang['skin_switcher']['color'] ?></h5>
     <div class="colors">
         <span class="alternate-style color-1" skinColor="skin-color-1"></span>
         <span class="alternate-style color-2 active" skinColor="skin-color-2"></span>
         <span class="alternate-style color-3" skinColor="skin-color-3"></span>
         <span class="alternate-style color-4" skinColor="skin-color-4"></span>
         <span class="alternate-style color-5" skinColor="skin-color-5"></span>
+    </div>
+    <h5><?= $lang['skin_switcher']['lang'] ?></h5>
+    <div class="lang">
+        <select id="lang_selector">
+            <option value="vie" <?php if ($lang['symbol'] == 'vie') {
+                                    echo 'selected';
+                                } ?>>Tiếng việt</option>
+            <option value="en" <?php if ($lang['symbol'] == 'en') {
+                                    echo 'selected';
+                                } ?>>English</option>
+        </select>
     </div>
 </div>

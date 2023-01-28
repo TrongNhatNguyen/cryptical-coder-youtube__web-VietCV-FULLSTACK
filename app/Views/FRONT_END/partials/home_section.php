@@ -15,21 +15,25 @@
         <div class="row">
             <!-- đoạn giới thiệu -->
             <div class="home-info padd-lr-15">
-                <h3>Xin chào Nhà Tuyển Dụng, tôi là <span class="name">Nguyễn Trọng Nhật</span></h3>
-                <h3 class="job">Tôi là <span class="typing">...</span></h3>
+                <h3>
+                    <?= $lang['home_lang_section']['intro_1'] ?>
+                    <span class="name">
+                        <?= $lang['home_lang_section']['intro_1_span'] ?>
+                    </span>
+                </h3>
+                <h3 class="job">
+                    <?= $lang['home_lang_section']['intro_2'] ?>
+                    <span text-run="<?= $lang['home_lang_section']['intro_2_span'] ?>" class="typing"></span>
+                </h3>
                 <div class="intro-text">
                     <p>
-                        Với hơn 03 năm trao dồi kiến thức qua trường lớp, thực tập, các khoá học online
-                        và tham gia nhiều dự án khác nhau.
+                        <?= $lang['home_lang_section']['text_1'] ?>
                     </p>
                     <p>
-                        Tôi mong muốn được sử dụng những kiến thức, kinh nghiệm của mình để hoàn thành
-                        công việc một cách hiệu quả, mang đến nhiều giá trị cốt lõi cho khách hàng cũng
-                        như đáp ứng được nhu cầu làm việc của Quý công ty, góp một phần nhỏ sức lực để
-                        Quý công ty luôn ổn định và ngày càng phát triển.
+                        <?= $lang['home_lang_section']['text_2'] ?>
                     </p>
                 </div>
-                <a href="#about" class="btn hire-me mg-t-30" rel="noopener noreferrer">Xem thông tin của tôi</a>
+                <a href="#about" class="btn hire-me mg-t-30" rel="noopener noreferrer"><?= $lang['home_lang_section']['show_me'] ?></a>
             </div>
 
             <!-- ảnh đại diện -->
@@ -39,5 +43,21 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Background chuyển động -->
+    <div class="area dark">
+        <ul class="circles">
+            <li><i class="fa-brands fa-php"></i></li>
+            <li><i class="fa-solid fa-palette"></i></li>
+            <li></li>
+            <li><i class="fa-brands fa-css3"></i></li>
+            <li></li>
+            <li><i class="fa-brands fa-windows"></i></li>
+            <li><i class="fa-solid fa-code"></i></li>
+            <li></li>
+            <li><i class="fa-regular fa-star"></i></li>
+            <li><i class="fa-brands fa-github"></i></li>
+        </ul>
     </div>
 </section>

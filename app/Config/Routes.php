@@ -1,4 +1,8 @@
 <?php
+// phpcs:ignoreFile
+/**
+ *  Controller xử lý tất cả URL của web,
+ */
 
 namespace Config;
 
@@ -32,12 +36,23 @@ $routes->set404Override();
  * Route Definitions
  * --------------------------------------------------------------------
  */
+$routes->get('/intro', 'IntroExample::index');
 
 // ĐƯỜNG DẪN URL CHO FRONT-END
-$routes->get('/intro', 'IntroExample::index');
-$routes->get('/home', [\App\Controllers\FRONT_END\Home::class, 'index'], ['as' => 'home']);
-$routes->addRedirect('/', 'home');
+$routes->get('/home/lang/(:any)', [\App\Controllers\FRONT_END\Home::class, 'index'], ['as' => 'home']);
+$lang_symbol = DEFAULT_LANG;
+if (session()->has('lang_SESS')) {
+    $lang_symbol = session()->get('lang_SESS');
+}
+$routes->addRedirect('/', '/home/lang/' . $lang_symbol);
 
+// Cập nhật Section active khi chọn danh mục
+$routes->post('section/active', [\App\Controllers\FRONT_END\Home::class, 'update_section_active'], ['as' => 'section.active']);
+
+// Nhận mail tuyển dụng
+$routes->post('/contact/send-mail', [\App\Controllers\FRONT_END\Home::class, 'contact_send_mail'], ['as' => 'contact.send_mail']);
+
+// ---------------------------------------
 // ĐƯỜNG DẪN URL CHO BACK-END
 $routes->get('/admin/dashboard', [\App\Controllers\BACK_END\HomeAdmin::class, 'index'], ['as' => 'admin_dashboard']);
 $routes->addRedirect('/admin', 'admin_dashboard');

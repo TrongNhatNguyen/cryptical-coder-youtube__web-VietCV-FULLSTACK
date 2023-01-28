@@ -25,7 +25,7 @@ class App extends BaseConfig
      * @var string
      */
     // public $baseURL = 'http://localhost:8080/cryptical-coder-youtube-vietcv/';
-    public $baseURL = 'http://mylocalapp.test/cryptical-coder-youtube-vietcv/';
+    public $baseURL = 'http://vietcv-codeigniter.test/';
 
     /**
      * --------------------------------------------------------------------------
