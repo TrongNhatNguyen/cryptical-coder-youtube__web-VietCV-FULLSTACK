@@ -34,16 +34,16 @@ class Home extends Controller
     {
         // Thay đổi ngôn ngữ đã chọn khi reload
         $data['lang'] = $this->change_language($lang_req);
-
         // Hiển thị Section đã chọn khi reload
         $data['section_active'] = DEFAULT_SECTION;
         if ($this->session->has('section_SESS')) {
             $data['section_active'] = $this->session->get('section_SESS');
         }
-
+        
         // khai báo 2 dòng này để dùng được: <?= $this->extend,section,.. ?.> ở Views
         $path = APPPATH . 'views/FRONT_END/';
         $view = \Config\Services::renderer($path, null, false);
+        // var_dump('ở ffaay'); die;
         return $view->setData($data)->render('index_view');
     }
 

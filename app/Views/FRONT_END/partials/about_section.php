@@ -17,7 +17,7 @@
         <div class="row">
             <div class="about-text padd-lr-15">
                 <h3>
-                    <?= $lang['about_lang_section']['about_intro'] ?>
+                    <?= $lang['about_lang_section']['intro'] ?>
                     <span><?= $lang['about_lang_section']['intro_span'] ?></span>
                 </h3>
                 <p>
